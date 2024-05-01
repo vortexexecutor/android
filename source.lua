@@ -220,5 +220,5 @@ vortex.editorScrollingFrame.Changed:Connect(function()
 end)
 
 vortex.executeButton.Activated:Connect(function()
-	loadstring(vortex.scriptEditor.Text)
+	loadstring(vortex.scriptEditor.Text)()
 end)
