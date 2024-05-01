@@ -153,12 +153,12 @@ vortex.editorScrollingFrame = Instance.new("ScrollingFrame", vortex.executorFram
 vortex.editorScrollingFrame.BackgroundTransparency = 1
 vortex.editorScrollingFrame.Size = UDim2.new(0.76, 0, 0.88, 0)
 vortex.editorScrollingFrame.Position = UDim2.new(0.22, 0, 0.06, 0)
+vortex.editorScrollingFrame.CanvasSize = UDim2.new(0, 0)
 vortex.editorScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.XY
 vortex.editorScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 vortex.editorScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 vortex.editorScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.XY
 vortex.editorScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
-vortex.editorScrollingFrame.CanvasSize = UDim2.new(0, 0)
 
 vortex.scriptPreviewLabel = Instance.new("TextLabel", vortex.editorScrollingFrame)
 vortex.scriptPreviewLabel.BackgroundTransparency = 1
@@ -169,6 +169,7 @@ vortex.scriptPreviewLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 vortex.scriptPreviewLabel.Text = 'print("Hello, World!")'
 vortex.scriptPreviewLabel.TextXAlignment = Enum.TextXAlignment.Left
 vortex.scriptPreviewLabel.TextYAlignment = Enum.TextYAlignment.Top
+vortex.scriptPreviewLabel.TextWrapped = false
 
 vortex.focusArea = Instance.new("TextButton", vortex.executorFrame)
 vortex.focusArea.Size = UDim2.new(0.8, 0, 1, 0)
