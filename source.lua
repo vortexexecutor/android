@@ -171,9 +171,8 @@ vortex.scriptPreviewLabel.TextXAlignment = Enum.TextXAlignment.Left
 vortex.scriptPreviewLabel.TextYAlignment = Enum.TextYAlignment.Top
 vortex.scriptPreviewLabel.TextWrapped = false
 
-vortex.focusArea = Instance.new("TextButton", vortex.executorFrame)
-vortex.focusArea.Size = UDim2.new(0.8, 0, 1, 0)
-vortex.focusArea.Position = UDim2.new(0.2, 0, 0, 0)
+vortex.focusArea = Instance.new("TextButton", vortex.editorScrollingFrame)
+vortex.focusArea.Size = UDim2.new(1, 0, 1, 0)
 vortex.focusArea.Transparency = 1
 
 vortex.scriptEditor = Instance.new("TextBox", vortex.editorScrollingFrame)
