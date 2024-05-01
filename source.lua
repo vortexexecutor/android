@@ -2,8 +2,7 @@ vortex = {}
 
 -- << GUI >> --
 
-vortex.gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
-vortex.gui.IgnoreGuiInset = true
+vortex.gui = Instance.new("ScreenGui", game.CoreGui)
 
 vortex.mainWindow = Instance.new("Frame", vortex.gui)
 vortex.mainWindow.AnchorPoint = Vector2.new(0.5, 0.5)
