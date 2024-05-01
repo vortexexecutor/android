@@ -219,6 +219,6 @@ vortex.editorScrollingFrame.Changed:Connect(function()
 	vortex.linesScrollingFrame.CanvasPosition = vortex.editorScrollingFrame.CanvasPosition
 end)
 
-vortex.executeButton.Activated:Connect(function()
+vortex.executeButton.MouseButton1Click:Connect(function()
 	loadstring(vortex.scriptEditor.Text)()
 end)
