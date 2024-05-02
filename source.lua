@@ -1,5 +1,8 @@
 vortex = {}
 vortex.version = "beta"
+function vortex:testFunction()
+	print("function called")
+end
 
 getgenv().vortex = vortex
 
