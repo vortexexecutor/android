@@ -1,223 +1,331 @@
-vortex = {}
+-- Gui to Lua
+-- Version: 3.2
 
--- << GUI >> --
+-- Instances:
 
-vortex.gui = Instance.new("ScreenGui", game.CoreGui)
+local x = tostring(math.random(100, 999))
+local d = "NewArchive" .. x
 
-vortex.mainWindow = Instance.new("Frame", vortex.gui)
-vortex.mainWindow.AnchorPoint = Vector2.new(0.5, 0.5)
-vortex.mainWindow.Size = UDim2.new(0.7, 0, 0.8, 0)
-vortex.mainWindow.Position = UDim2.new(0.5, 0, 0.5, 0)
-vortex.mainWindow.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local Frame_3 = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UIPadding = Instance.new("UIPadding")
+local Frame_4 = Instance.new("Frame")
+local Frame_5 = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local Frame_6 = Instance.new("Frame")
+local Frame_7 = Instance.new("Frame")
+local Frame_8 = Instance.new("Frame")
+local Frame_9 = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local PageContainer = Instance.new("Frame")
+local ExecutorPage = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local Frame_10 = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local LinesFrame = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local Frame_11 = Instance.new("Frame")
+local Frame_12 = Instance.new("Frame")
+local LinesScrollingFrame = Instance.new("ScrollingFrame")
+local LinesTextLabel = Instance.new("TextLabel")
+local FocusArea = Instance.new("TextButton")
+local EditorScrollingFrame = Instance.new("ScrollingFrame")
+local exedbox = Instance.new("TextBox")
 
-cornerRadius = math.min(vortex.mainWindow.AbsoluteSize.X, vortex.mainWindow.AbsoluteSize.Y) * 0.1
+--Properties:
 
-Instance.new("UICorner", vortex.mainWindow).CornerRadius = UDim.new(0, cornerRadius)
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-vortex.topBar = Instance.new("Frame", vortex.mainWindow)
-vortex.topBar.Size = UDim2.new(1, 0, 0.16, 0)
-vortex.topBar.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Frame.Parent = ScreenGui
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(0.699999988, 0, 0.800000012, 0)
 
-corner = Instance.new("UICorner", vortex.topBar)
-corner.CornerRadius = UDim.new(0.5, 0)
+UICorner.CornerRadius = UDim.new(0, 28)
+UICorner.Parent = Frame
 
-cornerMask = Instance.new("Frame", vortex.topBar)
-cornerMask.AnchorPoint = Vector2.new(0, 1)
-cornerMask.Size = UDim2.new(1, 0, 0.5, 0)
-cornerMask.Position = UDim2.new(0, 0, 1, 0)
-cornerMask.BorderSizePixel = 0
-cornerMask.BackgroundColor3 = vortex.topBar.BackgroundColor3
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Frame_2.Size = UDim2.new(1, 0, 0.159999996, 0)
 
-vortex.title = Instance.new("TextLabel", vortex.topBar)
-vortex.title.Size = UDim2.new(1, 0, 1, 0)
-vortex.title.BackgroundTransparency = 1
-vortex.title.Text = "VORTEX"
-vortex.title.ZIndex = 2
-vortex.title.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Heavy)
-vortex.title.TextColor3 = Color3.fromRGB(255, 255, 255)
-vortex.title.TextScaled = true
+UICorner_2.CornerRadius = UDim.new(0.5, 0)
+UICorner_2.Parent = Frame_2
 
-padding = Instance.new("UIPadding", vortex.title)
-padding.PaddingBottom = UDim.new(0.25, 0)
-padding.PaddingTop = UDim.new(0.2, 0)
+Frame_3.Parent = Frame_2
+Frame_3.AnchorPoint = Vector2.new(0, 1)
+Frame_3.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0, 0, 1, 0)
+Frame_3.Size = UDim2.new(1, 0, 0.5, 0)
 
-stroke = Instance.new("UIStroke", vortex.title)
-stroke.Color = Color3.fromRGB(79, 79, 79)
-stroke.Thickness = 3
+TextLabel.Parent = Frame_2
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.ZIndex = 2
+TextLabel.Font = Enum.Font.GothamBlack
+TextLabel.Text = "VORTEX"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextWrapped = true
 
-border = Instance.new("Frame", vortex.mainWindow)
-border.Size = UDim2.new(1, 0, 0.014, 0)
-border.Position = UDim2.new(0, 0, 0.16, 0)
-border.BorderSizePixel = 0
-border.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+UIPadding.Parent = TextLabel
+UIPadding.PaddingBottom = UDim.new(0.25, 0)
+UIPadding.PaddingTop = UDim.new(0.200000003, 0)
 
-vortex.sideBar = Instance.new("Frame", vortex.mainWindow)
-vortex.sideBar.Size = UDim2.new(0.13, 0, 0.826, 0)
-vortex.sideBar.Position = UDim2.new(0, 0, 0.174, 0)
-vortex.sideBar.BorderSizePixel = 0
-vortex.sideBar.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_4.Parent = Frame
+Frame_4.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_4.BorderSizePixel = 0
+Frame_4.Position = UDim2.new(0, 0, 0.159999996, 0)
+Frame_4.Size = UDim2.new(1, 0, 0.0140000004, 0)
 
-Instance.new("UICorner", vortex.sideBar).CornerRadius = UDim.new(0, cornerRadius)
+Frame_5.Parent = Frame
+Frame_5.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_5.BorderSizePixel = 0
+Frame_5.Position = UDim2.new(0, 0, 0.173999995, 0)
+Frame_5.Size = UDim2.new(0.129999995, 0, 0.825999975, 0)
 
-cornerMask = Instance.new("Frame", vortex.sideBar)
-cornerMask.Size = UDim2.new(1, 0, 0.5, 0)
-cornerMask.BorderSizePixel = 0
-cornerMask.BackgroundColor3 = vortex.sideBar.BackgroundColor3
+UICorner_3.CornerRadius = UDim.new(0, 28)
+UICorner_3.Parent = Frame_5
 
-cornerMask = Instance.new("Frame", vortex.sideBar)
-cornerMask.AnchorPoint = Vector2.new(1, 1)
-cornerMask.Size = UDim2.new(0.5, 0, 0.5, 0)
-cornerMask.Position = UDim2.new(1, 0, 1, 0)
-cornerMask.BorderSizePixel = 0
-cornerMask.BackgroundColor3 = vortex.sideBar.BackgroundColor3
+Frame_6.Parent = Frame_5
+Frame_6.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_6.BorderSizePixel = 0
+Frame_6.Size = UDim2.new(1, 0, 0.5, 0)
 
-cornerMask = Instance.new("Frame", vortex.sideBar)
-cornerMask.Size = UDim2.new(0.6, 0, 0.18, 0)
-cornerMask.Position = UDim2.new(1, 0, 0, 0)
-cornerMask.BorderSizePixel = 0
-cornerMask.BackgroundColor3 = vortex.sideBar.BackgroundColor3
+Frame_7.Parent = Frame_5
+Frame_7.AnchorPoint = Vector2.new(1, 1)
+Frame_7.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_7.BorderSizePixel = 0
+Frame_7.Position = UDim2.new(1, 0, 1, 0)
+Frame_7.Size = UDim2.new(0.5, 0, 0.5, 0)
 
-cornerFrame = Instance.new("Frame", cornerMask)
-cornerFrame.Size = UDim2.new(2, 0, 2, 0)
-cornerFrame.BorderSizePixel = 0
-cornerFrame.BackgroundColor3 = vortex.mainWindow.BackgroundColor3
+Frame_8.Parent = Frame_5
+Frame_8.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_8.BorderSizePixel = 0
+Frame_8.Position = UDim2.new(1, 0, 0, 0)
+Frame_8.Size = UDim2.new(0.600000024, 0, 0.180000007, 0)
 
-Instance.new("UICorner", cornerFrame).CornerRadius = UDim.new(0.2, 0)
+Frame_9.Parent = Frame_8
+Frame_9.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Frame_9.BorderSizePixel = 0
+Frame_9.Size = UDim2.new(2, 0, 2, 0)
 
-vortex.pageContainer = Instance.new("Frame", vortex.mainWindow)
-vortex.pageContainer.Size = UDim2.new(0.87, 0, 0.826, 0)
-vortex.pageContainer.Position = UDim2.new(0.13, 0, 0.174, 0)
-vortex.pageContainer.BackgroundTransparency = 1
+UICorner_4.CornerRadius = UDim.new(0.200000003, 0)
+UICorner_4.Parent = Frame_9
 
-vortex.executorPage = Instance.new("Frame", vortex.pageContainer)
-vortex.executorPage.Size = UDim2.new(1, 0, 1, 0)
-vortex.executorPage.BackgroundTransparency = 1
+PageContainer.Name = "PageContainer"
+PageContainer.Parent = Frame
+PageContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PageContainer.BackgroundTransparency = 1.000
+PageContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PageContainer.BorderSizePixel = 0
+PageContainer.Position = UDim2.new(0.129999995, 0, 0.173999995, 0)
+PageContainer.Size = UDim2.new(0.870000005, 0, 0.825999975, 0)
 
-vortex.executorFrame = Instance.new("Frame", vortex.executorPage)
-vortex.executorFrame.Size = UDim2.new(0.92, 0, 0.7, 0)
-vortex.executorFrame.Position = UDim2.new(0.04, 0, 0.06, 0)
-vortex.executorFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+ExecutorPage.Name = "ExecutorPage"
+ExecutorPage.Parent = PageContainer
+ExecutorPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ExecutorPage.BackgroundTransparency = 1.000
+ExecutorPage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ExecutorPage.BorderSizePixel = 0
+ExecutorPage.Size = UDim2.new(1, 0, 1, 0)
 
-cornerRadius = math.min(vortex.executorFrame.AbsoluteSize.X, vortex.executorFrame.AbsoluteSize.Y) * 0.08
-
-Instance.new("UICorner", vortex.executorFrame).CornerRadius = UDim.new(0, cornerRadius)
-
-vortex.linesFrame = Instance.new("Frame", vortex.executorFrame)
-vortex.linesFrame.Size = UDim2.new(0.2, 0, 1, 0)
-vortex.linesFrame.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
-
-Instance.new("UICorner", vortex.linesFrame).CornerRadius = UDim.new(0, cornerRadius)
-
-cornerMask = Instance.new("Frame", vortex.linesFrame)
-cornerMask.AnchorPoint = Vector2.new(1, 0)
-cornerMask.Size = UDim2.new(0.5, 0, 1, 0)
-cornerMask.Position = UDim2.new(1, 0, 0, 0)
-cornerMask.BorderSizePixel = 0
-cornerMask.BackgroundColor3 = vortex.linesFrame.BackgroundColor3
-
-stroke = Instance.new("UIStroke", vortex.executorFrame)
-stroke.Color = Color3.fromRGB(85, 122, 255)
-stroke.Thickness = 2
-
-border = Instance.new("Frame", vortex.linesFrame)
-border.AnchorPoint = Vector2.new(1, 0)
-border.Size = UDim2.new(0.17, 0, 1, 0)
-border.Position = UDim2.new(1, 0, 0, 0)
-border.BorderSizePixel = 0
-border.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
-
-vortex.linesScrollingFrame = Instance.new("ScrollingFrame", vortex.linesFrame)
-vortex.linesScrollingFrame.BackgroundTransparency = 1
-vortex.linesScrollingFrame.Size = UDim2.new(0.7, 0, 0.88, 0)
-vortex.linesScrollingFrame.Position = UDim2.new(0.16, 0, 0.06, 0)
-vortex.linesScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
-vortex.linesScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.Y
-vortex.linesScrollingFrame.ScrollBarThickness = 0
-vortex.linesScrollingFrame.ScrollingEnabled = false
-vortex.linesScrollingFrame.CanvasSize = UDim2.new(0, 0)
-
-textSize = math.round(vortex.linesScrollingFrame.AbsoluteSize.X / 3.13)
-
-vortex.linesTextLabel = Instance.new("TextLabel", vortex.linesScrollingFrame)
-vortex.linesTextLabel.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Heavy)
-vortex.linesTextLabel.TextSize = textSize
-vortex.linesTextLabel.TextColor3 = Color3.fromRGB(159, 159, 159)
-vortex.linesTextLabel.AutomaticSize = Enum.AutomaticSize.Y
-vortex.linesTextLabel.BackgroundTransparency = 1
-vortex.linesTextLabel.Size = UDim2.new(1, 0, 1, 0)
-vortex.linesTextLabel.Text = "1"
-vortex.linesTextLabel.TextXAlignment = Enum.TextXAlignment.Left
-vortex.linesTextLabel.TextYAlignment = Enum.TextYAlignment.Top
-
-vortex.editorScrollingFrame = Instance.new("ScrollingFrame", vortex.executorFrame)
-vortex.editorScrollingFrame.BackgroundTransparency = 1
-vortex.editorScrollingFrame.Size = UDim2.new(0.76, 0, 0.88, 0)
-vortex.editorScrollingFrame.Position = UDim2.new(0.22, 0, 0.06, 0)
-vortex.editorScrollingFrame.CanvasSize = UDim2.new(0, 0)
-vortex.editorScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.XY
-vortex.editorScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-vortex.editorScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-vortex.editorScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.XY
-vortex.editorScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
-
-vortex.scriptPreviewLabel = Instance.new("TextLabel", vortex.editorScrollingFrame)
-vortex.scriptPreviewLabel.BackgroundTransparency = 1
-vortex.scriptPreviewLabel.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium)
-vortex.scriptPreviewLabel.TextSize = textSize
-vortex.scriptPreviewLabel.AutomaticSize = Enum.AutomaticSize.XY
-vortex.scriptPreviewLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-vortex.scriptPreviewLabel.Text = 'print("Hello, World!")'
-vortex.scriptPreviewLabel.TextXAlignment = Enum.TextXAlignment.Left
-vortex.scriptPreviewLabel.TextYAlignment = Enum.TextYAlignment.Top
-vortex.scriptPreviewLabel.TextWrapped = false
-
-vortex.focusArea = Instance.new("TextButton", vortex.editorScrollingFrame)
-vortex.focusArea.Size = UDim2.new(1, 0, 1, 0)
-vortex.focusArea.Transparency = 1
-
-vortex.scriptEditor = Instance.new("TextBox", vortex.editorScrollingFrame)
-vortex.scriptEditor.TextColor3 = Color3.fromRGB(255, 255, 255)
-vortex.scriptEditor.Size = UDim2.new(1, 0, 1, 0)
-vortex.scriptEditor.TextXAlignment = Enum.TextXAlignment.Left
-vortex.scriptEditor.TextYAlignment = Enum.TextYAlignment.Top
-vortex.scriptEditor.BackgroundTransparency = 1
-vortex.scriptEditor.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium)
-vortex.scriptEditor.Visible = false
-vortex.scriptEditor.TextSize = textSize
-vortex.scriptEditor.Text = vortex.scriptPreviewLabel.Text
-vortex.scriptEditor.ClearTextOnFocus = false
-vortex.scriptEditor.MultiLine = true
-
-vortex.executeButton = Instance.new("TextButton", vortex.executorPage)
-vortex.executeButton.Text = "EXECUTE"
-vortex.executeButton.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Heavy)
-vortex.executeButton.Size = UDim2.new(0.29, 0, 0.16, 0)
-textSize = math.round(vortex.executeButton.AbsoluteSize.X / 6.27)
-vortex.executeButton.Position = UDim2.new(0.04, 0, 0.8, 0)
-vortex.executeButton.BackgroundColor3 = Color3.fromRGB(85, 122, 255)
-vortex.executeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-vortex.executeButton.TextSize = textSize
-
-Instance.new("UICorner", vortex.executeButton).CornerRadius = UDim.new(0.3, 0)
-
--- << SCRIPTING >> --
-
-vortex.focusArea.MouseButton1Click:Connect(function()
-	vortex.scriptEditor.Visible = true
-	vortex.scriptPreviewLabel.Visible = false
-	vortex.scriptEditor:CaptureFocus()
+TextButton.Parent = ExecutorPage
+TextButton.BackgroundColor3 = Color3.fromRGB(85, 122, 255)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0399999991, 0, 0.800000012, 0)
+TextButton.Size = UDim2.new(0.289999992, 0, 0.159999996, 0)
+TextButton.Font = Enum.Font.GothamBlack
+TextButton.Text = "EXECUTE"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 18.000
+TextButton.MouseButton1Down:connect(function()
+    if exedbox.Visible == true then
+    loadstring(exedbox.Text)()
+ end
 end)
 
-vortex.scriptEditor.FocusLost:Connect(function()
-	vortex.scriptPreviewLabel.Text = vortex.scriptEditor.Text
-	vortex.scriptEditor.Visible = false
-	vortex.scriptPreviewLabel.Visible = true
+UICorner_5.CornerRadius = UDim.new(0.300000012, 0)
+UICorner_5.Parent = TextButton
+
+TextButton_2.Parent = ExecutorPage
+TextButton_2.AnchorPoint = Vector2.new(0.5, 0)
+TextButton_2.BackgroundColor3 = Color3.fromRGB(85, 122, 255)
+TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.5, 0, 0.800000012, 0)
+TextButton_2.Size = UDim2.new(0.289999992, 0, 0.159999996, 0)
+TextButton_2.Font = Enum.Font.GothamBlack
+TextButton_2.Text = "SAVE"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextSize = 18.000
+TextButton_2.MouseButton1Down:connect(function()
+    if exedbox.Visible == true then
+        local filetext = exedbox.Text
+        writefile(d, filetext)
+        print( "file saved as: " .. d)
+    end
 end)
 
-vortex.editorScrollingFrame.Changed:Connect(function()
-	vortex.linesScrollingFrame.CanvasPosition = vortex.editorScrollingFrame.CanvasPosition
+UICorner_6.CornerRadius = UDim.new(0.300000012, 0)
+UICorner_6.Parent = TextButton_2
+
+TextButton_3.Parent = ExecutorPage
+TextButton_3.AnchorPoint = Vector2.new(1, 0)
+TextButton_3.BackgroundColor3 = Color3.fromRGB(85, 122, 255)
+TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.959999979, 0, 0.800000012, 0)
+TextButton_3.Size = UDim2.new(0.289999992, 0, 0.159999996, 0)
+TextButton_3.Font = Enum.Font.GothamBlack
+TextButton_3.Text = "CLEAR"
+TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.TextSize = 18.000
+TextButton_3.MouseButton1Down:connect(function()
+    if exedbox.Visible == true then
+    exedbox.Text = ""
+ end
 end)
 
-vortex.executeButton.MouseButton1Click:Connect(function()
-	loadstring(vortex.scriptEditor.Text)()
-end)
+UICorner_7.CornerRadius = UDim.new(0.300000012, 0)
+UICorner_7.Parent = TextButton_3
+
+Frame_10.Parent = ExecutorPage
+Frame_10.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Frame_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_10.BorderSizePixel = 0
+Frame_10.Position = UDim2.new(0.0399999991, 0, 0.0599999987, 0)
+Frame_10.Size = UDim2.new(0.920000017, 0, 0.699999988, 0)
+
+UICorner_8.CornerRadius = UDim.new(0.0799999982, 0)
+UICorner_8.Parent = Frame_10
+
+LinesFrame.Name = "LinesFrame"
+LinesFrame.Parent = Frame_10
+LinesFrame.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+LinesFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LinesFrame.BorderSizePixel = 0
+LinesFrame.Size = UDim2.new(0.200000003, 0, 1, 0)
+
+UICorner_9.CornerRadius = UDim.new(0, 14)
+UICorner_9.Parent = LinesFrame
+
+Frame_11.Parent = LinesFrame
+Frame_11.AnchorPoint = Vector2.new(1, 0)
+Frame_11.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Frame_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_11.BorderSizePixel = 0
+Frame_11.Position = UDim2.new(1, 0, 0, 0)
+Frame_11.Size = UDim2.new(0.5, 0, 1, 0)
+
+Frame_12.Parent = LinesFrame
+Frame_12.AnchorPoint = Vector2.new(1, 0)
+Frame_12.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+Frame_12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_12.BorderSizePixel = 0
+Frame_12.Position = UDim2.new(1, 0, 0, 0)
+Frame_12.Size = UDim2.new(0.170000002, 0, 1, 0)
+
+LinesScrollingFrame.Name = "LinesScrollingFrame"
+LinesScrollingFrame.Parent = LinesFrame
+LinesScrollingFrame.Active = true
+LinesScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LinesScrollingFrame.BackgroundTransparency = 1.000
+LinesScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LinesScrollingFrame.BorderSizePixel = 0
+LinesScrollingFrame.Position = UDim2.new(0.159999996, 0, 0.0599999987, 0)
+LinesScrollingFrame.Size = UDim2.new(0.699999988, 0, 0.879999995, 0)
+LinesScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+LinesScrollingFrame.ScrollBarThickness = 0
+LinesScrollingFrame.ScrollingEnabled = false
+
+LinesTextLabel.Name = "LinesTextLabel"
+LinesTextLabel.Parent = LinesScrollingFrame
+LinesTextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LinesTextLabel.BackgroundTransparency = 1.000
+LinesTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LinesTextLabel.BorderSizePixel = 0
+LinesTextLabel.Size = UDim2.new(1, 0, 1, 0)
+LinesTextLabel.Font = Enum.Font.GothamBlack
+LinesTextLabel.Text = "1"
+LinesTextLabel.TextColor3 = Color3.fromRGB(159, 159, 159)
+LinesTextLabel.TextSize = 16.000
+LinesTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+LinesTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+
+FocusArea.Name = "FocusArea"
+FocusArea.Parent = Frame_10
+FocusArea.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FocusArea.BackgroundTransparency = 1.000
+FocusArea.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FocusArea.BorderSizePixel = 0
+FocusArea.Position = UDim2.new(0.200000003, 0, 0, 0)
+FocusArea.Size = UDim2.new(0.800000012, 0, 1, 0)
+FocusArea.Font = Enum.Font.SourceSans
+FocusArea.Text = ""
+FocusArea.TextColor3 = Color3.fromRGB(0, 0, 0)
+FocusArea.TextSize = 14.000
+
+EditorScrollingFrame.Name = "EditorScrollingFrame"
+EditorScrollingFrame.Parent = Frame_10
+EditorScrollingFrame.Active = true
+EditorScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+EditorScrollingFrame.BackgroundTransparency = 1.000
+EditorScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+EditorScrollingFrame.BorderSizePixel = 0
+EditorScrollingFrame.Position = UDim2.new(0.219999999, 0, 0.0599999987, 0)
+EditorScrollingFrame.Size = UDim2.new(0.75999999, 0, 0.879999995, 0)
+EditorScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+EditorScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+EditorScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+exedbox.Name = "exedbox"
+exedbox.Parent = EditorScrollingFrame
+exedbox.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+exedbox.BorderColor3 = Color3.fromRGB(255, 255, 255)
+exedbox.BorderSizePixel = 0
+exedbox.Position = UDim2.new(7.13029731e-05, 0, 0, 0)
+exedbox.Size = UDim2.new(0, 415, 0, 261)
+exedbox.ClearTextOnFocus = false
+exedbox.Font = Enum.Font.GothamBold
+exedbox.MultiLine = true
+exedbox.PlaceholderText = "print(\"Hello, World!\")"
+exedbox.Text = ""
+exedbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+exedbox.TextSize = 14.000
+exedbox.TextWrapped = true
+exedbox.TextXAlignment = Enum.TextXAlignment.Left
+exedbox.TextYAlignment = Enum.TextYAlignment.Top
+
+-- Scripts:
+
+local function AYZAYUB_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.TextSize = math.round(script.Parent.AbsoluteSize.X / 6.27)
+end
+coroutine.wrap(AYZAYUB_fake_script)()
+local function VJUX_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	script.Parent.TextSize = math.round(script.Parent.AbsoluteSize.X / 6.27)
+end
+coroutine.wrap(VJUX_fake_script)()
+local function AYOKS_fake_script() -- TextButton_3.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_3)
+
+	script.Parent.TextSize = math.round(script.Parent.AbsoluteSize.X / 6.27)
+end
+coroutine.wrap(AYOKS_fake_script)()
