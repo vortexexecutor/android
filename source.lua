@@ -1,6 +1,8 @@
 vortex = {}
 getgenv().vortex = vortex
 
+vortex.version = "beta"
+
 -- << GUI >> --
 
 vortex.gui = Instance.new("ScreenGui", game.CoreGui)
