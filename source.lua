@@ -263,3 +263,13 @@ vortex.version = "beta"
 function vortex:Destroy()
 	vortex.gui:Destroy()
 end
+
+local TestEvent = Instance.new("BindableEvent")
+
+vortex.testEvent = TestEvent.Event
+
+spawn(function()
+	while wait(1) do
+		TestEvent:Fire()
+	end
+end)
