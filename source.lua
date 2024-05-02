@@ -1,8 +1,4 @@
 vortex = {}
-vortex.version = "beta"
-function vortex:testFunction()
-	print("function called")
-end
 
 getgenv().vortex = vortex
 
@@ -259,3 +255,11 @@ end)
 vortex.executeButton.MouseButton1Click:Connect(function()
 	loadstring("vortex = getgenv().vortex\n"..vortex.scriptEditor.Text)()
 end)
+
+-- << BUILT IN >> --
+
+vortex.version = "beta"
+
+function vortex:Destroy()
+	vortex.gui:Destroy()
+end
