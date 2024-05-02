@@ -3,8 +3,8 @@
 
 -- Instances:
 
-local x = tostring(math.random(100, 999))
-local d = "NewArchive" .. x
+local x = tostring(math.random(1, 999))
+local d = "Script" .. x
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
