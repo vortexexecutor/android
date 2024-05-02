@@ -2,7 +2,8 @@ vortex = {}
 
 -- << GUI >> --
 
-vortex.gui = Instance.new("ScreenGui", game.CoreGui)
+vortex.gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+vortex.gui.IgnoreGuiInset = true
 
 vortex.mainWindow = Instance.new("Frame", vortex.gui)
 vortex.mainWindow.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -200,6 +201,27 @@ vortex.executeButton.TextSize = textSize
 
 Instance.new("UICorner", vortex.executeButton).CornerRadius = UDim.new(0.3, 0)
 
+stroke = Instance.new("UIStroke", vortex.executeButton)
+stroke.Color = Color3.fromRGB(66, 97, 198)
+stroke.Thickness = 2
+
+vortex.saveButton = Instance.new("TextButton", vortex.executorPage)
+vortex.saveButton.AnchorPoint = Vector2.new(0.5, 0)
+vortex.saveButton.Text = "SAVE"
+vortex.saveButton.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Heavy)
+vortex.saveButton.Size = UDim2.new(0.29, 0, 0.16, 0)
+textSize = math.round(vortex.saveButton.AbsoluteSize.X / 6.27)
+vortex.saveButton.Position = UDim2.new(00.5, 0, 0.8, 0)
+vortex.saveButton.BackgroundColor3 = Color3.fromRGB(85, 122, 255)
+vortex.saveButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+vortex.saveButton.TextSize = textSize
+
+Instance.new("UICorner", vortex.saveButton).CornerRadius = UDim.new(0.3, 0)
+
+stroke = Instance.new("UIStroke", vortex.saveButton)
+stroke.Color = Color3.fromRGB(66, 97, 198)
+stroke.Thickness = 2
+
 -- << SCRIPTING >> --
 
 vortex.focusArea.MouseButton1Click:Connect(function()
@@ -213,6 +235,16 @@ vortex.scriptEditor.FocusLost:Connect(function()
 	vortex.scriptEditor.Visible = false
 	vortex.scriptPreviewLabel.Visible = true
 end)
+
+function updateLines()
+	vortex.linesTextLabel.Text = ""
+	local lines = #vortex.scriptEditor.Text:split("\n")
+	for line = 1, lines do
+		vortex.linesTextLabel.Text ..= line .. "\n"
+	end
+end
+
+vortex.scriptEditor.Changed:Connect(updateLines)
 
 vortex.editorScrollingFrame.Changed:Connect(function()
 	vortex.linesScrollingFrame.CanvasPosition = vortex.editorScrollingFrame.CanvasPosition
