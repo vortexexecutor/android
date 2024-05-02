@@ -1,8 +1,9 @@
 vortex = {}
+getgenv().vortex = vortex
 
 -- << GUI >> --
 
-vortex.gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+vortex.gui = Instance.new("ScreenGui", game.CoreGui)
 vortex.gui.IgnoreGuiInset = true
 
 vortex.mainWindow = Instance.new("Frame", vortex.gui)
@@ -251,5 +252,5 @@ vortex.editorScrollingFrame.Changed:Connect(function()
 end)
 
 vortex.executeButton.MouseButton1Click:Connect(function()
-	loadstring(vortex.scriptEditor.Text)()
+	loadstring("vortex = getgenv().vortex\n"..vortex.scriptEditor.Text)()
 end)
