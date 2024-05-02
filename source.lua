@@ -1,7 +1,7 @@
 vortex = {}
-getgenv().vortex = vortex
-
 vortex.version = "beta"
+
+getgenv().vortex = vortex
 
 -- << GUI >> --
 
