@@ -1,5 +1,6 @@
 vortex = {}
-
+local x = tostring(math.random(1, 999))
+local d = "Script" .. x
 getgenv().vortex = vortex
 
 -- << GUI >> --
@@ -224,6 +225,23 @@ stroke = Instance.new("UIStroke", vortex.saveButton)
 stroke.Color = Color3.fromRGB(66, 97, 198)
 stroke.Thickness = 2
 
+vortex.Clearbutton = Instance.new("TextButton", vortex.executorPage)
+vortex.Clearbutton.AnchorPoint = Vector2.new(0.5, 0)
+vortex.Clearbutton.Text = "CLEAR"
+vortex.Clearbutton.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Heavy)
+vortex.Clearbutton.Size = UDim2.new(0.289999992, 0, 0.159999996, 0)
+textSize = math.round(vortex.Clearbutton.AbsoluteSize.X / 6.27)
+vortex.Clearbutton.Position = UDim2.new(0.959999979, 0, 0.800000012, 0)
+vortex.Clearbutton.BackgroundColor3 = Color3.fromRGB(85, 122, 255)
+vortex.Clearbutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+vortex.Clearbutton.TextSize = textSize
+
+Instance.new("UICorner", vortex.Clearbutton).CornerRadius = UDim.new(0.3, 0)
+
+stroke = Instance.new("UIStroke", vortex.Clearbutton)
+stroke.Color = Color3.fromRGB(66, 97, 198)
+stroke.Thickness = 2
+
 -- << SCRIPTING >> --
 
 vortex.focusArea.MouseButton1Click:Connect(function()
@@ -254,6 +272,20 @@ end)
 
 vortex.executeButton.MouseButton1Click:Connect(function()
 	loadstring("vortex = getgenv().vortex\n"..vortex.scriptEditor.Text)()
+end)
+
+vortex.Clearbutton.MouseButton1Down:connect(function()
+    if vortex.scriptEditor.Visible == true then
+    vortex.scriptEditor.Text = ""
+ end
+end)
+
+vortex.saveButton.MouseButton1Down:connect(function()
+    if vortex.scriptEditor.Text == true then
+        local filetext = exedbox.Text
+        writefile(d, filetext)
+        print( "file saved as: " .. d)
+    end
 end)
 
 -- << BUILT IN >> --
