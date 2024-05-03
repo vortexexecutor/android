@@ -162,6 +162,7 @@ vortex.editorScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-
 vortex.editorScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 vortex.editorScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.XY
 vortex.editorScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+vortex.editorScrollingFrame.ElasticBehavior = Enum.ElasticBehavior.Never
 
 vortex.scriptPreviewLabel = Instance.new("TextLabel", vortex.editorScrollingFrame)
 vortex.scriptPreviewLabel.BackgroundTransparency = 1
