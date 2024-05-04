@@ -1,3 +1,4 @@
+print("ready to use")
 vortex = {}
 
 getgenv().vortex = vortex
